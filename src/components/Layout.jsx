@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import { StaticRouter } from 'react-router-dom/server';
 import App from './App';
 
 export default function Layout({ initState }) {
@@ -15,14 +16,16 @@ export default function Layout({ initState }) {
             __html: `window.initState=${JSON.stringify(initState)}`,
           }}
         />
-        <script defer src="/app.js" />
-        <script defer src="/vendor.js" />
+        <script defer src="/js/app.js" />
+        <script defer src="/js/vendor.js" />
         <link href="/css/main.css" rel="stylesheet" media="all" />
         <title>React SSR</title>
       </head>
       <body>
         <div id="root">
-          <App {...initState} />
+          <StaticRouter location={initState.path}>
+            <App {...initState} />
+          </StaticRouter>
         </div>
       </body>
     </html>

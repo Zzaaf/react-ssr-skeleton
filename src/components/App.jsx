@@ -1,19 +1,24 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import Form from './Form';
+import { Route, Routes } from 'react-router-dom';
+import Nav from './Nav';
+import Registration from './Registration';
+import EntryesList from './EntryesList';
+import CurrentEntry from './CurrentEntry';
 
-export default function App({ title, oneProp }) {
+export default function App() {
   return (
     <div className="page-wrapper bg-gra-03 p-t-45 p-b-50">
       <div className="wrapper wrapper--w790">
-        <div className="card card-5">
-          <div className="card-heading">
-            <h2 className="title">Регистрация на ELBRUS PARTY {title}</h2>
-          </div>
-          <div className="card-body">
-            <Form oneProp={oneProp} />
-          </div>
-        </div>
+        {/* навигация прложения, рендерится при любом маршруте */}
+        <Nav />
+
+        {/* компонент обёртка Routes хранит в себе список клиентских обработчиков 
+        привязанных к конткретным компонентам  */}
+        <Routes>
+          <Route path="/" element={<Registration />} />
+          <Route path="/entryes" element={<EntryesList />} />
+          <Route path="/entryes/:id" element={<CurrentEntry />} />
+        </Routes>
       </div>
     </div>
   );

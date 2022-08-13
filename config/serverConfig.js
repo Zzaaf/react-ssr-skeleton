@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import ssr from '../middleware/ssr';
 
 // главная конфигурация приложения
 const config = (app) => {
@@ -11,7 +10,6 @@ const config = (app) => {
   app.use(express.urlencoded({ extended: true }));
   app.use(cors());
   app.use(morgan('dev'));
-  app.use(ssr);
 };
 
 export default config;

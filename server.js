@@ -3,9 +3,9 @@ import config from './config/serverConfig';
 import { sequelize } from './db/models';
 
 // подключение роутеров
-import apiEntryes from './routes/api/apiEntryes';
+import apiEntries from './routes/api/apiEntries';
 import mainRouter from './routes/render/mainRoute';
-import entryesRouter from './routes/render/entryesRoute';
+import entriesRouter from './routes/render/entriesRoute';
 
 // инициализация приложения 'app'
 const app = express();
@@ -18,8 +18,8 @@ config(app);
 
 // маршрутизация приложения
 app.use('/', mainRouter);
-app.use('/api/entryes', apiEntryes);
-app.use('/entryes', entryesRouter);
+app.use('/api/entries', apiEntries);
+app.use('/entries', entriesRouter);
 
 // проверка работы ДБ
 sequelize.authenticate();

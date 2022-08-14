@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Nav from './Nav';
 import Registration from './Registration';
-import EntryesList from './EntryesList';
+import EntriesList from './EntriesList';
 import CurrentEntry from './CurrentEntry';
 
 export default function App() {
@@ -12,12 +12,12 @@ export default function App() {
         {/* навигация прложения, рендерится при любом маршруте */}
         <Nav />
 
-        {/* компонент обёртка Routes хранит в себе список клиентских обработчиков 
+        {/* компонент обёртка Routes хранит в себе список клиентских обработчиков
         привязанных к конткретным компонентам  */}
         <Routes>
           <Route path="/" element={<Registration />} />
-          <Route path="/entryes" element={<EntryesList />} />
-          <Route path="/entryes/:id" element={<CurrentEntry />} />
+          <Route path="/entries" element={<EntriesList />} />
+          <Route path="/entries/:id" element={<CurrentEntry />} />
         </Routes>
       </div>
     </div>

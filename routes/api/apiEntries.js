@@ -10,7 +10,7 @@ const router = Router();
 router.route('/')
   .get((req, res) => {
     Entry.findAll({ raw: true })
-      .then((allEntryes) => res.json(allEntryes))
+      .then((allEntries) => res.json(allEntries))
       .catch((error) => res.status(500).json({ message: error.message }));
   })
   .post((req, res) => {
@@ -18,5 +18,8 @@ router.route('/')
       .then(() => res.status(201).json({ status: true }))
       .catch((error) => res.status(500).json({ message: error.message }));
   });
+router.get('/:id', (req, res) => Entry.findByPk(req.params.id)
+  .then((entry) => res.json(entry)).catch((error) => res.status(500)
+    .json({ message: error.message })));
 
 export default router;

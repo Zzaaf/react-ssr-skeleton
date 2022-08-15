@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import EntryCard from './EntryCard';
 
-function EntryesList() {
-  const [entryesList, setEntryesList] = useState([]);
+function EntriesList() {
+  const [entriesList, setEntriesList] = useState([]);
 
   useEffect(() => {
-    fetch('/api/entryes')
+    fetch('/api/entries')
       .then((response) => response.json())
-      .then((allEntryes) => setEntryesList(allEntryes));
+      .then((allEntries) => setEntriesList(allEntries));
   }, []);
 
   return (
@@ -19,9 +19,9 @@ function EntryesList() {
 
       <div className="card-body">
         <ul>
-          {entryesList.length
-            ? entryesList.map((entry) => <EntryCard key={entry.id} entry={entry} />)
-            : <li>No entryes!</li>}
+          {entriesList.length
+            ? entriesList.map((entry) => <EntryCard key={entry.id} entry={entry} />)
+            : <li>No entries!</li>}
         </ul>
       </div>
 
@@ -29,4 +29,4 @@ function EntryesList() {
   );
 }
 
-export default EntryesList;
+export default EntriesList;

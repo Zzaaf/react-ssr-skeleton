@@ -18,7 +18,7 @@ export default function Form() {
   };
 
   return (
-    <form method="post" action="/api/entryes" onSubmit={fetchHandler}>
+    <form method="post" action="/api/entries" onSubmit={fetchHandler}>
       <div className="form-row m-b-55">
         <div className="name">Как тебя зовут</div>
         <div className="value">

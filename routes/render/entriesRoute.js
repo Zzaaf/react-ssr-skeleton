@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
   res.end(html);
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   const initState = { path: req.originalUrl };
   const layout = React.createElement(Layout, { initState });
   const html = renderToString(layout);
